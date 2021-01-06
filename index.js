@@ -8,7 +8,10 @@ const isExempt = require('./lib/isExempt.js');
 
 (async () => {
   try {
-    const githubRepository = core.getInput('repository');
+    var githubRepository = core.getInput('repository');
+    if (githubRepository.length == 0) {
+      githubRepository = process.env.GITHUB_REPOSITORY;
+    }
     const githubActor = process.env.GITHUB_ACTOR;
     const githubToken = core.getInput('token');
     const cooldownMinutes = core.getInput('cooldownMinutes');

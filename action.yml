@@ -3,7 +3,7 @@ description: 'Force cooldown for issues and comments for new users'
 inputs:
   repository:
     description: 'Repository to protect'
-    default: $GITHUB_REPOSITORY
+    default: ''
   token:
     description: 'Github personal token'
     required: true
