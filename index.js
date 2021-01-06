@@ -78,7 +78,7 @@ const isExempt = require('./lib/isExempt.js');
       }
     );
     const birthday = user.createdAt
-    if (isExempt(birthday, exemptAgeDays)) {
+    if (exemptAgeDays > 0 && isExempt(birthday, exemptAgeDays)) {
       core.info(`${githubActor} is exempt from cooldown`);
       return;
     }
