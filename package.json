@@ -1,0 +1,28 @@
+{
+  "name": "github-cooldown-action",
+  "version": "1.0.0",
+  "description": "Force cooldown for issues and comments for new users",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "github actions",
+    "github"
+  ],
+  "author": "osy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/osy/github-cooldown-action/issues"
+  },
+  "homepage": "https://github.com/osy/github-cooldown-action",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osy/github-cooldown-action.git"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@octokit/graphql": "^4.5.8"
+  }
+}

@@ -1,0 +1,22 @@
+name: 'Github Cooldown'
+description: 'Force cooldown for issues and comments for new users'
+inputs:
+  repository:
+    description: 'Repository to protect'
+    default: $GITHUB_REPOSITORY
+  token:
+    description: 'Github personal token'
+    required: true
+    default: ''
+  cooldownMinutes:
+    description: 'How many minutes between comments'
+    default: 10
+  exemptAgeDays:
+    description: 'Accounts older than this many days are exempt, 0 to disable'
+    default: 0
+runs:
+  using: 'node12'
+  main: 'index.js'
+branding:
+  icon: 'x-octagon'  
+  color: 'red'
