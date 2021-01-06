@@ -44,7 +44,7 @@ jobs:
     continue-on-error: true
     steps:
     - name: Cooldown
-      uses: osy/github-cooldown-action@v1.0
+      uses: osy/github-cooldown-action@v1
       with:
         token: ${{ secrets.COOLDOWN_TOKEN }}
         exemptAgeDays: 365
