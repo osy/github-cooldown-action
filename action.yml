@@ -14,6 +14,12 @@ inputs:
   exemptAgeDays:
     description: 'Accounts older than this many days are exempt, 0 to disable'
     default: 0
+  maxNewIssues:
+    description: 'Number of permitted issues before triggering a cooldown'
+    default: 1
+  maxNewComments:
+    description: 'Number of permitted comments before triggering a cooldown'
+    default: 1
 runs:
   using: 'node12'
   main: 'index.js'

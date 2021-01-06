@@ -16,6 +16,8 @@ const isExempt = require('./lib/isExempt.js');
     const githubToken = core.getInput('token');
     const cooldownMinutes = core.getInput('cooldownMinutes');
     const exemptAgeDays = core.getInput('exemptAgeDays');
+    const maxNewIssues = core.getInput('maxNewIssues');
+    const maxNewComments = core.getInput('maxNewComments');
 
     const graphqlWithAuth = graphql.defaults({
       headers: {
@@ -83,8 +85,8 @@ const isExempt = require('./lib/isExempt.js');
       return;
     }
     const recentIssues = enforceCooldown(user.issues.edges, cooldownMinutes, repoId);
-    if (recentIssues.length > 1) {
-      for (let i = 0; i < recentIssues.length-1; i++) {
+    if (recentIssues.length > maxNewIssues) {
+      for (let i = 0; i < recentIssues.length-maxNewIssues; i++) {
         await graphqlWithAuth(
           `
             mutation deleteIssue($delete: DeleteIssueInput!) {
@@ -103,8 +105,8 @@ const isExempt = require('./lib/isExempt.js');
       throw new Error(`${githubActor} triggered issue cooldown`);
     }
     const recentComments = enforceCooldown(user.issueComments.edges, cooldownMinutes, repoId);
-    if (recentComments.length > 1) {
-      for (let i = 0; i < recentComments.length-1; i++) {
+    if (recentComments.length > maxNewComments) {
+      for (let i = 0; i < recentComments.length-maxNewComments; i++) {
         await graphqlWithAuth(
           `
             mutation deleteIssueComment($delete: DeleteIssueCommentInput!) {

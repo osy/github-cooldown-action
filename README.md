@@ -20,6 +20,14 @@ The minimum amount of time (in minutes) that a user is allowed to make a new iss
 
 Accounts older than this (in days) will be exempt from cooldown rules. If 0, then no accounts are exempt. The default is 0 (no exemption).
 
+### `maxNewIssues`
+
+Number of issues permitted before triggering a cooldown. Default is 1. The count is separate from number of comments.
+
+### `maxNewComments`
+
+Number of comments permitted before triggering a cooldown. Default is 1. The count is separate from number of issues.
+
 ## Example usage
 
 ```yaml
