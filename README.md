@@ -1,6 +1,6 @@
 # Github Cooldown Action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+Limit the amount of new issues or issue comments created by new users. Once the number of issues/comments exceeds a threshold in a short amount of time, all issues/comments made over that threshold will be deleted automatically. This helps reduce the impact of griefers and trolls.
 
 ## Inputs
 
